@@ -1,43 +1,26 @@
 pipeline {
-  agent none
 
-  environment {
+   agent any
+
+   environment {
     // Email configuration
     EMAIL_TO   = 'phunganhtuan123@gmail.com'
     EMAIL_BODY = "<p>Check console output at</p>"
   }
 
+
   stages {
-    stage('Requirements') {
-      steps {
-        sh 'docker-compose build'
-        sh 'docker-compose up'
-      }
-    }
+     stage('docker-compose') {
+         steps {
+            sh "docker-compose build"
+            sh "docker-compose up -d"
+         }
+     }
   }
 
   post {
     always {
-      step([
-        $class: 'RcovPublisher',
-        reportDir: 'coverage/rcov',
-        targets: [
-          [
-            $class: 'hudson.plugins.rubyMetrics.rcov.model.MetricTarget',
-            metric: 'TOTAL_COVERAGE',
-            healthy: 15,
-            unhealthy: 13,
-            unstable: 10
-          ],
-          [
-            $class: 'hudson.plugins.rubyMetrics.rcov.model.MetricTarget',
-            metric: 'CODE_COVERAGE',
-            healthy: 15,
-            unhealthy: 13,
-            unstable: 10
-          ]
-        ]
-      ])
+      sh "docker-compose down || true"
     }
 
     success {
