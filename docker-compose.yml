@@ -1,0 +1,37 @@
+version: "3.0"
+services:
+  web:
+    volumes:
+      - ./:/app/local/teko/
+    build:
+      context: .
+      dockerfile: docker/test.Dockerfile
+    ports:
+      - "4567:4567"
+    links:
+      - mysql
+      - memcached
+      - redis
+      - redis_ml
+      - redis_materiall
+  memcached:
+    image: memcached:latest
+    ports:
+      - "11211:11211"
+  mysql:
+    build:
+      context: .
+      dockerfile: docker/mysql.Dockerfile
+    ports:
+      - "3306:3306"
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    command: "redis-server --requirepass teko123"
+  redis_ml:
+    image: redis:latest
+    command: "redis-server --requirepass teko123"
+  redis_materiall:
+    image: redis:latest
+    command: "redis-server --requirepass teko123"
