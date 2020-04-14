@@ -13,17 +13,13 @@ pipeline {
      stage('docker-compose') {
          steps {
             sh 'docker ps'
-            sh "docker-compose build"
+            sh '/usr/bin/docker-compose up --build -d'
             sh "docker-compose up -d"
          }
      }
   }
 
   post {
-    always {
-      sh "docker-compose down || true"
-    }
-
     success {
       emailext(
         attachmentsPattern: 'logs.zip',
