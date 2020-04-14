@@ -19,11 +19,17 @@ services:
     ports:
       - "11211:11211"
   mysql:
-    build:
-      context: .
-      dockerfile: docker/mysql.Dockerfile
+    image: mysql:5.6
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123123
     ports:
-      - "3306:3306"
+      - 3306:3306
+    networks:
+      - backend
+    volumes:
+      - mysql-datavolume:/var/lib/mysql
   redis:
     image: redis:latest
     ports:
