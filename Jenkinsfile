@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'ruby:2.6.3'
-      args '-v $HOME/bundle_cache/Backend/bundle:/usr/local/bundle'
-    }
-  }
+  agent none
 
   environment {
     // Email configuration
@@ -23,8 +18,6 @@ pipeline {
 
   post {
     always {
-      sh 'zip -r logs.zip logs/*'
-
       step([
         $class: 'RcovPublisher',
         reportDir: 'coverage/rcov',
