@@ -1,4 +1,7 @@
 pipeline {
+  agent {
+
+  }
   environment {
     // Email configuration
     EMAIL_TO   = 'phunganhtuan123@gmail.com'
