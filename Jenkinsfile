@@ -1,7 +1,11 @@
 pipeline {
   agent {
-
+    docker {
+      image 'ruby:2.6.3'
+      args '-v $HOME/bundle_cache/Backend/bundle:/usr/local/bundle'
+    }
   }
+
   environment {
     // Email configuration
     EMAIL_TO   = 'phunganhtuan123@gmail.com'
