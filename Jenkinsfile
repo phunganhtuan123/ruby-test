@@ -25,20 +25,6 @@ pipeline {
         sh 'cp config/database.yml.template config/database.yml'
       }
     }
-
-    stage('Unit test') {
-      steps {
-        // Just for the first time
-        // sh 'bundle exec rake db:setup_test'
-
-        // And for another time
-        sh 'RACK_ENV=test bundle exec rake db:migrate'
-        sh 'RACK_ENV=test bundle exec rake db:seed'
-
-        sh 'rm -rf logs/*'
-        sh 'bundle exec rspec'
-      }
-    }
   }
 
   post {
