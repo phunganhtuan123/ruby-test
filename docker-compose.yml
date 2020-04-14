@@ -9,6 +9,7 @@ services:
     ports:
       - "4567:4567"
     links:
+      - mysql
       - memcached
       - redis
       - redis_ml
@@ -17,6 +18,12 @@ services:
     image: memcached:latest
     ports:
       - "11211:11211"
+  mysql:
+    build:
+      context: .
+      dockerfile: docker/mysql.Dockerfile
+    ports:
+      - "3306:3306"
   redis:
     image: redis:latest
     ports:
