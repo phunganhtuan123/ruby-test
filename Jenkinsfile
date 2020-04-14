@@ -12,7 +12,6 @@ pipeline {
   stages {
      stage('docker-compose') {
          steps {
-            sh 'sudo usermod -aG docker jenkins'
             sh 'docker ps'
             sh "docker-compose build"
             sh "docker-compose up -d"
