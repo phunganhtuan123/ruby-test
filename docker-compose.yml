@@ -28,8 +28,6 @@ services:
       - 3306:3306
     networks:
       - backend
-    volumes:
-      - mysql-datavolume:/var/lib/mysql
   redis:
     image: redis:latest
     ports:
