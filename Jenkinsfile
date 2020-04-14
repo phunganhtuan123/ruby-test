@@ -6,23 +6,20 @@ pipeline {
     // Email configuration
     EMAIL_TO   = 'phunganhtuan123@gmail.com'
     EMAIL_BODY = "<p>Check console output at</p>"
+    PATH = "$PATH:/usr/bin"
   }
 
 
   stages {
      stage('docker-compose') {
          steps {
-            sh "docker-compose build"
-            sh "docker-compose up -d"
+            echo "PATH is: $PATH"
+            sh "/usr/bin/docker-compose up --build -d"
          }
      }
   }
 
   post {
-    always {
-      sh "docker-compose down || true"
-    }
-
     success {
       emailext(
         attachmentsPattern: 'logs.zip',
