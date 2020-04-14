@@ -26,8 +26,6 @@ services:
       MYSQL_ROOT_PASSWORD: 123123
     ports:
       - 3306:3306
-    networks:
-      - backend
   redis:
     image: redis:latest
     ports:
