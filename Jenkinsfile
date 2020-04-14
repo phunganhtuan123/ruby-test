@@ -15,14 +15,8 @@ pipeline {
   stages {
     stage('Requirements') {
       steps {
-        sh 'apt-get update'
-        sh 'apt-get install -y default-libmysqlclient-dev'
-        sh 'apt-get install -y libgd-dev'
-        sh 'apt-get install -y default-mysql-client'
-        sh 'apt-get install -y zip'
-        sh 'gem install bundler -v 2.0.2'
-        sh 'bundle install --jobs 4 --retry 3'
-        sh 'cp config/database.yml.template config/database.yml'
+        sh 'docker-compose build'
+        sh 'docker-compose up'
       }
     }
   }
