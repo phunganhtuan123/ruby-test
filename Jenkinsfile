@@ -15,7 +15,6 @@ pipeline {
      stage('docker-compose') {
          steps {
             sh 'docker ps'
-            sh 'which docker-compose'
             sh 'docker-compose up -d'
          }
      }
