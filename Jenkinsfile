@@ -15,6 +15,8 @@ pipeline {
      stage('docker-compose') {
          steps {
             sh 'docker ps'
+            sh 'whoami'
+            sh 'which docker-compose'
             sh 'docker-compose up -d'
          }
      }
