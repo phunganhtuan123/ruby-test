@@ -6,8 +6,7 @@ pipeline {
     // Email configuration
     EMAIL_TO   = 'phunganhtuan123@gmail.com'
     EMAIL_BODY = "<p>Check console output at</p>"
-    PATH = "$PATH:/usr/local/bin"
-
+    PATH = "$PATH:/usr/bin"
   }
 
 
