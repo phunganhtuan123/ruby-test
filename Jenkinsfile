@@ -16,7 +16,7 @@ pipeline {
             sh 'docker ps'
             sh 'whoami'
             sh 'docker --version'
-            sh 'which docker-compose'
+            sh 'which docker'
             sh 'which docker-compose'
             sh 'docker-compose up -d'
          }
