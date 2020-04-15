@@ -15,7 +15,7 @@ pipeline {
          steps {
             sh 'docker ps'
             sh 'whoami'
-            sh 'chmod +x /usr/bin/docker-compose'
+            sh 'chmod 777 /var/run/docker.sock'
             sh 'which docker-compose'
             sh 'docker-compose up -d'
          }
