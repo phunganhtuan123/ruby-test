@@ -50,7 +50,7 @@ gem 'net-ssh', '~> 4.2.0'
 gem 'net-ssh-gateway', '~> 1.2.0'
 gem 'savon', '~> 2.11.2'
 
-gem 'mechanize', '~> 2.7.5'
+gem 'mechanize', '~> 2.7.7'
 
 gem 'colorize'
 gem 'http_logger', '~> 0.5.1'
