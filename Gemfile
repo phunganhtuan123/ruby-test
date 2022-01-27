@@ -35,7 +35,7 @@ gem 'redis', '~> 3.3.5'
 gem 'redis-slave-read', '~> 0.2.1'
 gem 'redisearch-rb', '~> 0.1.8'
 gem 'sequel', '~> 5.24.0'
-gem 'sidekiq', '~> 4.2.10'
+gem 'sidekiq', '~> 5.2.8'
 gem 'sidekiq-unique-jobs', '~> 6.0', '>= 6.0.15'
 
 gem 'configurability', '~> 2.1.2'
