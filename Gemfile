@@ -28,7 +28,7 @@ gem 'rqrcode', '~> 0.10.1'
 gem 'rubyzip', '~> 1.0.0'
 gem 'whenever', require: false
 
-gem 'dalli', '~> 2.7.6'
+gem 'dalli', '~> 3.2.3'
 gem 'elasticsearch', '~> 1.1.3'
 gem 'mysql2', '~> 0.5.2'
 gem 'redis', '~> 3.3.5'
